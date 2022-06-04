@@ -1,7 +1,7 @@
 # blox-amateur
 very original roblox extension yes
 
-WARNING: THIS EXTENSION ONLY WORKS LOCALLY SO OTHER ROPRO USERS WILL SEE YOU AS A FREE USER
+WARNING: THIS EXTENSION ONLY WORKS LOCALLY SO OTHER "RP" USERS WILL SEE YOU AS A FREE USER
 
 ### features
 
@@ -80,4 +80,5 @@ for firefox: (temp) (xpi file coming soon...)
 
 ### support/contact
 v3rm: [ihatekritikals](https://v3rmillion.net/member.php?action=profile&uid=2779623)
+
 disc: kritikal#0368
