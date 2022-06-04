@@ -1,10 +1,10 @@
 {
   "update_url": "https://clients2.google.com/service/update2/crx",
   "name": "__MSG_name__",
-  "short_name": "RoPro",
+  "short_name": "b-a",
   "description": "__MSG_description__",
   "default_locale": "en",
-  "author": "RoPro Development Team",
+  "author": "kr-ssh",
   "icons": {
     "16": "icon16.png",
     "48": "icon48.png",
@@ -268,7 +268,7 @@
     "/js/page/fetchAvatar.js"
   ],
   "browser_action": {
-    "default_title": "RoPro",
+    "default_title": "blox amateur",
     "default_popup": "options.html"
   },
   "manifest_version": 2,
