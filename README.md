@@ -1,6 +1,8 @@
 # blox-amateur
 very original roblox extension yes
 
+WARNING: THIS EXTENSION ONLY WORKS LOCALLY SO OTHER ROPRO USERS WILL SEE YOU AS A FREE USER
+
 ### features
 
 - avatar sandbox
@@ -53,8 +55,7 @@ very original roblox extension yes
 - trade protection
 
 to-do list:
-- animated themes (easily doable)
-- everything else is impossible
+- animated themes (easily doable, only locally)
 
 ### how to install the thing
 universal settings:
@@ -70,7 +71,7 @@ for chrome: (perm)
 - add the folder or manifest.json file for the pop-up
 - done
 
-for firefox: (temp)
+for firefox: (temp) (xpi file coming soon...)
 - install the src and unzip it
 - go to: about:debugging#/runtime/this-firefox
 - click "load temporary add-on"
