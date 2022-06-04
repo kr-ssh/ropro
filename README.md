@@ -77,9 +77,6 @@ for firefox: (temp)
 - add the the manifest.json file from the folder for the pop-up
 - done
 
-for firefox: (perm)
-- install the xpi file in the newest release at https://github.com/kr-ssh/blox-amateur/releases
-- click on the menu icon on the top right and click "add-ons and themes"
-- click on the settings cog icon below the search bar and click "install add-on from file"
-- add the xpi file in the pop-up
-- done
+### support/contact
+v3rm: [ihatekritikals](https://v3rmillion.net/member.php?action=profile&uid=2779623)
+disc: kritikal#0368
