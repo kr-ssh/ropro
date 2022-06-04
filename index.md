@@ -1,37 +1,35 @@
-## Welcome to GitHub Pages
+## blox amateur: augment the roblox know-how
 
-You can use the [editor on GitHub](https://github.com/kr-ssh/blox-amateur/edit/gh-pages/index.md) to maintain and preview the content for your website in Markdown files.
+blox amateur is a roblox extension that enables you to have extra neat features for the roblox website.
 
-Whenever you commit to this repository, GitHub Pages will run [Jekyll](https://jekyllrb.com/) to rebuild the pages in your site, from the content in your Markdown files.
+### how to use it
+universal settings:
 
-### Markdown
+- you can't install this if you already have ropro
+- yes it works on other chrome-based/firefox-based (older versions might not work) browsers just lookup "how to debug extensions on [chrome-based/firefox-   based browser]"
+- yes it works on mac, windows and linux it's an extension not software
+- no i can't publish this as an extension in any webstore because i'd get a cease and desist letter up my ass
 
-Markdown is a lightweight and easy-to-use syntax for styling your writing. It includes conventions for
+for chrome:
 
-```markdown
-Syntax highlighted code block
+- install the src and unzip it
+- go to: chrome://extensions
+- click "load unpacked"
+- add the folder or manifest.json file for the pop-up
+- done
 
-# Header 1
-## Header 2
-### Header 3
+for firefox:
 
-- Bulleted
-- List
+- install the src and unzip it
+- go to: about:debugging#/runtime/this-firefox
+- click "load temporary add-on"
+- add the the manifest.json file from the folder for the pop-up
+- done
 
-1. Numbered
-2. List
 
-**Bold** and _Italic_ and `Code` text
 
-[Link](url) and ![Image](src)
-```
+### support/contact
 
-For more details see [Basic writing and formatting syntax](https://docs.github.com/en/github/writing-on-github/getting-started-with-writing-and-formatting-on-github/basic-writing-and-formatting-syntax).
-
-### Jekyll Themes
-
-Your Pages site will use the layout and styles from the Jekyll theme you have selected in your [repository settings](https://github.com/kr-ssh/blox-amateur/settings/pages). The name of this theme is saved in the Jekyll `_config.yml` configuration file.
-
-### Support or Contact
-
-Having trouble with Pages? Check out our [documentation](https://docs.github.com/categories/github-pages-basics/) or [contact support](https://support.github.com/contact) and we’ll help you sort it out.
+if you need help or you want a feature to be available ask me here:
+v3rm: [ihatekritikals](https://v3rmillion.net/member.php?action=profile&uid=2779623)
+disc: kritikal#0368
