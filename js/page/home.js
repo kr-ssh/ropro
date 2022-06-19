@@ -368,9 +368,7 @@ async function mainHome() {
                 if (document.getElementsByClassName('home-header').length == 0) {
                     username = stripTags(currentuser.name)
                     usericon = `https://www.roblox.com/headshot-thumbnail/image?userId=${parseInt(currentuser.id)}&width=420&height=420&format=png`
-                    newHomeText = `<span>Welcome Home,</span><br><img class="avatar avatar-headshot-xs active" src="${stripTags(usericon)}" style="width:70px;height:auto;margin-top:0px;margin-left:5px;margin-right:5px;" id="myGlower"><h1 style="margin-bottom:7px;display:inline-block;">${premium}${stripTags(username)}</h1>`
                     document.getElementsByClassName('home-container')[0].getElementsByTagName('h1')[0].style.height = "50px"
-                    document.getElementsByClassName('home-container')[0].getElementsByTagName('h1')[0].innerHTML = newHomeText
                 }
             //})
         }
@@ -451,7 +449,11 @@ async function mainHome() {
     if (!(await checkVerification())) {
         var verifyDiv = document.createElement('div')
         verifyDiv.innerHTML = `<div style="position:absolute;right:30px;top:35px;width:350px;z-index:100;"><p style="font-size:11px;margin-bottom:-6px;">Your user has not yet been verified in the current installation of RoPro. Some RoPro features require verification.</p><br><li class="rbx-upgrade-now" style="display: block;text-align:center;"><a id="roproVerifyButton" class="btn-growth-md btn-secondary-md">Verify My User (One Click)</a><span class="ropro-verify-info icon-moreinfo" style="cursor:pointer;margin-left:5px;position:relative;"><div style="display:none;position:absolute;left:-135px;top:-95px;font-size:13px;width:300px;background-color:#191B1D;padding:10px;border-radius:10px;" class="dark-theme ropro-verify-info-tooltip"><u>How verification works:</u><br>RoPro will automatically favorite then unfavorite a test game in order to verify your Roblox username &amp; ID.</div></span></li></div>`
-        document.getElementById('home-header').appendChild(verifyDiv)
+        if (document.getElementById('home-header') != null) {
+            document.getElementById('home-header').appendChild(verifyDiv)
+        } else {
+            document.getElementsByClassName('container-header')[0].appendChild(verifyDiv)
+        }
         document.getElementById('roproVerifyButton').addEventListener('click', async function() {
             verifyResult = await doVerification()
             if (verifyResult == true) {

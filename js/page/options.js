@@ -1,10 +1,35 @@
 /**
 
-totally made by me!!1!1!1!1!1!1!1
-no steal or me mad
+RoPro (https://ropro.io) v1.3
 
-v3rm: https://v3rmillion.net/member.php?action=profile&uid=2779623
+RoPro was wholly designed and coded by:
+                               
+,------.  ,--. ,-----.,------. 
+|  .-.  \ |  |'  .--./|  .---' 
+|  |  \  :|  ||  |    |  `--,  
+|  '--'  /|  |'  '--'\|  `---. 
+`-------' `--' `-----'`------' 
+                            
+Contact me:
 
+Discord - Dice#1000
+Email - dice@ropro.io
+Phone - 650-318-1631
+
+Write RoPro:
+
+Dice Systems LLC
+16192 Coastal Hwy
+Lewes, Deleware 19958
+United States
+
+RoPro Terms of Service:
+https://ropro.io/terms
+
+RoPro Privacy Policy:
+https://ropro.io/privacy-policy
+
+© 2022 Dice Systems LLC
 **/
 
 function stripTags(s) {
@@ -124,8 +149,8 @@ function getSubscription(userID) {
 				}
 			}
 			$.post({url: "https://api.ropro.io/getSubscription.php?key=" + await getStorage("subscriptionKey") + "&options_page", headers: {'ropro-verification': roproVerificationToken, 'ropro-id': userID}}, function(data){
-				setStorage('rpSubscription', "pro_tier")
-				resolve("pro_tier");
+				setStorage('rpSubscription', data)
+				resolve(data);
 			})
 		}
 		doGet(resolve)
@@ -276,6 +301,7 @@ function getSettings() {
 		"underOverRAP": check("underOverRAP"),
 		"winLossDisplay": check("winLossDisplay"),
 		"mostPlayedGames": check("mostPlayedGames"),
+		"mostPopularSort": check("mostPopularSort"),
 		"avatarEditorChanges": check("avatarEditorChanges"),
 		"playtimeTracking": check("playtimeTracking"),
 		"activeServerCount": check("activeServerCount"),

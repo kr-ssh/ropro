@@ -144,7 +144,7 @@ async function generateComment(commentArray) {
 	}
 	commentHTML = `                <div class="comment-item list-item" data-comment-id="">
 						<div class="comment-user list-header">
-							<div class="Avatar avatar avatar-headshot-md roblox-avatar-image" data-user-id="${parseInt(userid)}" data-image-size="small"><div style="position: relative;"><a href="https://www.roblox.com/users/${parseInt(userid)}/profile"><img title="${stripTags(username)}" alt="${stripTags(username)}" border="0" src="https://www.roblox.com/bust-thumbnail/image?userId=${parseInt(userid)}&width=420&height=420&format=png"></a></div></div>
+							<div class="Avatar avatar avatar-headshot-md roblox-avatar-image" data-user-id="${parseInt(userid)}" data-image-size="small"><div style="position: relative;"><a href="https://www.roblox.com/users/${parseInt(userid)}/profile"><img title="${stripTags(username)}" alt="${stripTags(username)}" border="0" src="https://www.roblox.com/headshot-thumbnail/image?userId=${parseInt(userid)}&width=420&height=420&format=png"></a></div></div>
 						</div>
 						<div class="comment-body list-body">
 							<a class="text-name" href="https://www.roblox.com/users/${parseInt(userid)}/profile">${stripTags(username)}</a>${linkIcon}

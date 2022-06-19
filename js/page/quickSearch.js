@@ -327,7 +327,7 @@ async function quicksearchMain() {
 	if (await fetchSetting('quickItemSearch')) {
 		quickItemSearch = true
 	} else {
-		quickItemSearch = true
+		quickItemSearch = false
 	}
 	if (await fetchSetting('experienceQuickSearch')) {
 		experienceQuickSearch = true
