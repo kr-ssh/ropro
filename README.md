@@ -5,12 +5,10 @@ WARNING: THIS EXTENSION ONLY WORKS LOCALLY SO OTHER "RP" USERS WILL SEE YOU AS A
 
 ### features
 
-- avatar sandbox
 - avatar editor changes
 - experience quick search
 - most played experiences on homepage
 - experience playtime tracking
-- server filters
 - rejoin most recent server
 - join random server button
 - profile themes
@@ -26,8 +24,6 @@ WARNING: THIS EXTENSION ONLY WORKS LOCALLY SO OTHER "RP" USERS WILL SEE YOU AS A
 - experience twitter feed integration (13+)
 - group twitter feed integration (13+)
 - view server region, version, and uptime
-- more server filters (region, connection, uptime)
-- more experience filters
 - more mutuals
 - experience like/dislike ratio filter
 - live experience like, dislike, and favorite counters
@@ -54,28 +50,34 @@ WARNING: THIS EXTENSION ONLY WORKS LOCALLY SO OTHER "RP" USERS WILL SEE YOU AS A
 - trade offers value calculator
 - trade protection
 
-to-do list:
-- animated themes (easily doable, only locally)
+not working:
+- avatar sandbox: the team is adding layered clothing support so it is now in maintenance, if you really need it downgrade to the V1 release
+- server filters: server api for roblox changed so server filters no longer work
+- more server filters (region, connection, uptime): server api for roblox changed so server filters no longer work
+- more experience filters: server api for roblox changed so experience filters no longer work
+- animated themes: animated themes do not work, could make it work locally
 
 ### how to install the thing
-universal settings:
-- you can't install this if you already have ropro
-- yes it works on other chrome-based/firefox-based (older versions might not work) browsers just lookup "how to debug extensions on [chrome-based/firefox-   based browser]" 
-- yes it works on mac, windows and linux it's a web extension not software
-- no i can't publish this extension in any webstore because i'd get a cease and desist letter up my ass
+qna:
+q: does it work on [insert chrome-based & firefox-based] browser?
+a: yes it works on other chrome-based/firefox-based (older versions might not work) browsers
 
-for chrome: (perm)
+q: does it work on mac, windows or linux?
+a: yes it works on mac, windows and linux as long as you have a chrome-based or firefox-based browser
+
+for chrome:
 - install the src and unzip it
 - go to: chrome://extensions
 - click "load unpacked"
-- add the folder or manifest.json file for the pop-up
+- add the folder for the pop-up
 - done
 
-for firefox: (temp) (xpi file coming soon...)
-- install the src and unzip it
-- go to: about:debugging#/runtime/this-firefox
-- click "load temporary add-on"
-- add the the manifest.json file from the folder for the pop-up
+for firefox: 
+- install xpi file in the releases page
+- go to: about:addons
+- click the cog wheel under the search bar
+- click the "install add-on from file..." option
+- add the the xpi file for the pop-up
 - done
 
 ### support/contact
