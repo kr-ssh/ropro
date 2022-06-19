@@ -1,10 +1,10 @@
 {
   "update_url": "https://clients2.google.com/service/update2/crx",
   "name": "__MSG_name__",
-  "short_name": "b-a",
+  "short_name": "Blox Amateur",
   "description": "__MSG_description__",
   "default_locale": "en",
-  "author": "kr-ssh",
+  "author": "Blox Amateur Developement Team",
   "icons": {
     "16": "icon16.png",
     "48": "icon48.png",
@@ -268,13 +268,13 @@
     "/js/page/fetchAvatar.js"
   ],
   "browser_action": {
-    "default_title": "blox amateur",
+    "default_title": "Blox Amateur",
     "default_popup": "options.html"
   },
   "manifest_version": 2,
   "browser_specific_settings": {
     "gecko": {
-      "id": "{fbfda72b-073a-4a24-9e87-6d472b69b66f}"
+      "id": "ropro@cracked.com"
     }
   }
 }

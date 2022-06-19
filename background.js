@@ -1,17 +1,8 @@
-/**
-
-totally made by me!!1!1!1!1!1!1!1
-no steal or me mad
-
-v3rm: https://v3rmillion.net/member.php?action=profile&uid=2779623
-
-**/
-
 chrome.runtime.onMessage.addListener(function(request,sender,sendResponse)
 {
 	switch(request.greeting) {
 		case "GetURL":
-			if (request.url.includes("ropro.io")) {
+			if (request.url.startsWith('https://ropro.io') || request.url.startsWith('https://api.ropro.io')) {
 				async function doPost() {
 					verificationDict = await getStorage('userVerification')
 					userID = await getStorage('rpUserID')
@@ -37,7 +28,7 @@ chrome.runtime.onMessage.addListener(function(request,sender,sendResponse)
 			}
 			break;
 		case "PostURL":
-			if (request.url.includes("ropro.io")) {
+			if (request.url.startsWith('https://ropro.io') || request.url.startsWith('https://api.ropro.io')) {
 				async function doPostURL() {
 					verificationDict = await getStorage('userVerification')
 					userID = await getStorage('rpUserID')
@@ -114,8 +105,8 @@ chrome.runtime.onMessage.addListener(function(request,sender,sendResponse)
 			})
 			break;
 		case "GetUserID":
-			$.get('https://www.roblox.com/mobileapi/userinfo', function(data,error,res) {
-				sendResponse(data['UserID'])
+			$.get('https://users.roblox.com/v1/users/authenticated', function(data,error,res) {
+				sendResponse(data['id'])
 			})
 			break;
 		case "GetCachedTrades":
@@ -490,6 +481,7 @@ var defaultSettings = {
 	underOverRAP: true,
 	winLossDisplay: true,
 	mostPlayedGames: true,
+	mostPopularSort: true,
 	experienceQuickSearch: true,
 	avatarEditorChanges: true,
 	playtimeTracking: true,
@@ -1037,7 +1029,7 @@ async function mutualFriends(userId) {
 						for (i = 0; i < theirFriends.data.length; i++) {
 							friend = theirFriends.data[i]
 							if (friend.id in friends) {
-								mutuals.push({"name": stripTags(friend.name), "link": "/users/" + parseInt(friend.id) + "/profile", "icon": "https://www.roblox.com/bust-thumbnail/image?userId=" + parseInt(friend.id) + "&width=420&height=420&format=png", "additional": friend.isOnline ? "Online" : "Offline"})
+								mutuals.push({"name": stripTags(friend.name), "link": "/users/" + parseInt(friend.id) + "/profile", "icon": "https://www.roblox.com/headshot-thumbnail/image?userId=" + parseInt(friend.id) + "&width=420&height=420&format=png", "additional": friend.isOnline ? "Online" : "Offline"})
 							}
 						}
 						console.log("Mutual Friends:", mutuals)
@@ -1058,7 +1050,7 @@ async function mutualFriends(userId) {
 						for (i = 0; i < theirFriends.data.length; i++) {
 							friend = theirFriends.data[i]
 							if (friend.id in friends) {
-								mutuals.push({"name": stripTags(friend.name), "link": "/users/" + parseInt(friend.id) + "/profile", "icon": "https://www.roblox.com/bust-thumbnail/image?userId=" + parseInt(friend.id) + "&width=420&height=420&format=png", "additional": friend.isOnline ? "Online" : "Offline"})
+								mutuals.push({"name": stripTags(friend.name), "link": "/users/" + parseInt(friend.id) + "/profile", "icon": "https://www.roblox.com/headshot-thumbnail/image?userId=" + parseInt(friend.id) + "&width=420&height=420&format=png", "additional": friend.isOnline ? "Online" : "Offline"})
 							}
 						}
 						console.log("Mutual Friends:", mutuals)
@@ -1085,7 +1077,7 @@ async function mutualFollowing(userId) {
 						for (i = 0; i < theirFriends.data.length; i++) {
 							friend = theirFriends.data[i]
 							if (friend.id in friends) {
-								mutuals.push({"name": stripTags(friend.name), "link": "/users/" + parseInt(friend.id) + "/profile", "icon": "https://www.roblox.com/bust-thumbnail/image?userId=" + parseInt(friend.id) + "&width=420&height=420&format=png", "additional": friend.isOnline ? "Online" : "Offline"})
+								mutuals.push({"name": stripTags(friend.name), "link": "/users/" + parseInt(friend.id) + "/profile", "icon": "https://www.roblox.com/headshot-thumbnail/image?userId=" + parseInt(friend.id) + "&width=420&height=420&format=png", "additional": friend.isOnline ? "Online" : "Offline"})
 							}
 						}
 						console.log("Mutual Following:", mutuals)
@@ -1113,7 +1105,7 @@ async function mutualFollowers(userId) {
 						for (i = 0; i < theirFriends.data.length; i++) {
 							friend = theirFriends.data[i]
 							if (friend.id in friends) {
-								mutuals.push({"name": stripTags(friend.name), "link": "/users/" + parseInt(friend.id) + "/profile", "icon": "https://www.roblox.com/bust-thumbnail/image?userId=" + parseInt(friend.id) + "&width=420&height=420&format=png", "additional": friend.isOnline ? "Online" : "Offline"})
+								mutuals.push({"name": stripTags(friend.name), "link": "/users/" + parseInt(friend.id) + "/profile", "icon": "https://www.roblox.com/headshot-thumbnail/image?userId=" + parseInt(friend.id) + "&width=420&height=420&format=png", "additional": friend.isOnline ? "Online" : "Offline"})
 							}
 						}
 						console.log("Mutual Followers:", mutuals)
@@ -1708,22 +1700,22 @@ async function syncSettings() {
 async function loadSettingValidity(setting) {
 	settings = await getStorage('rpSettings')
 	restrictSettings = await getStorage('restrictSettings')
-	restricted_settings = ["linkedDiscord", "gameTwitter", "groupTwitter", "groupDiscord"]
-	standard_settings = ["moreMutuals", "animatedProfileThemes", "morePlaytimeSorts", "serverSizeSort", "fastestServersSort", "moreGameFilters", "moreServerFilters", "additionalServerInfo", "gameLikeRatioFilter", "quickUserSearch", "liveLikeDislikeFavoriteCounters", "sandboxOutfits", "moreTradePanel", "tradeValueCalculator", "tradeDemandRatingCalculator", "tradeItemValue", "tradeItemDemand", "itemPageValueDemand", "tradePageProjectedWarning", "embeddedRolimonsItemLink", "embeddedRolimonsUserLink", "tradeOffersValueCalculator", "winLossDisplay", "underOverRAP"]
-	pro_settings = ["liveVisits", "livePlayers", "tradePreviews", "ownerHistory", "quickItemSearch", "tradeNotifier", "singleSessionMode",  "tradeProtection", "hideTradeBots", "autoDeclineTradeBots", "autoDecline", "declineThreshold", "cancelThreshold", "hideDeclinedNotifications", "hideOutboundNotifications"]
-	ultra_settings = ["dealNotifier", "buyButton", "dealCalculations", "notificationThreshold", "valueThreshold", "projectedFilter"]
+	restricted_settings = new Set(["linkedDiscord", "gameTwitter", "groupTwitter", "groupDiscord"])
+	standard_settings = new Set(["moreMutuals", "animatedProfileThemes", "morePlaytimeSorts", "serverSizeSort", "fastestServersSort", "moreGameFilters", "moreServerFilters", "additionalServerInfo", "gameLikeRatioFilter", "quickUserSearch", "liveLikeDislikeFavoriteCounters", "sandboxOutfits", "moreTradePanel", "tradeValueCalculator", "tradeDemandRatingCalculator", "tradeItemValue", "tradeItemDemand", "itemPageValueDemand", "tradePageProjectedWarning", "embeddedRolimonsItemLink", "embeddedRolimonsUserLink", "tradeOffersValueCalculator", "winLossDisplay", "underOverRAP"])
+	pro_settings = new Set(["liveVisits", "livePlayers", "tradePreviews", "ownerHistory", "quickItemSearch", "tradeNotifier", "singleSessionMode",  "tradeProtection", "hideTradeBots", "autoDeclineTradeBots", "autoDecline", "declineThreshold", "cancelThreshold", "hideDeclinedNotifications", "hideOutboundNotifications"])
+	ultra_settings = new Set(["dealNotifier", "buyButton", "dealCalculations", "notificationThreshold", "valueThreshold", "projectedFilter"])
 	subscriptionLevel = await subscriptionManager.getSubscription()
 	valid = true
 	if (subscriptionLevel == "free_tier") {
-		if (standard_settings.includes(setting) || pro_settings.includes(setting) || ultra_settings.includes(setting)) {
+		if (standard_settings.has(setting) || pro_settings.has(setting) || ultra_settings.has(setting)) {
 			valid = false
 		}
 	} else if (subscriptionLevel == "standard_tier") {
-		if (pro_settings.includes(setting) || ultra_settings.includes(setting)) {
+		if (pro_settings.has(setting) || ultra_settings.has(setting)) {
 			valid = false
 		}
 	} else if (subscriptionLevel == "pro_tier") {
-		if (ultra_settings.includes(setting)) {
+		if (ultra_settings.has(setting)) {
 			valid = false
 		}
 	} else if (subscriptionLevel == "ultra_tier") {
@@ -1731,7 +1723,7 @@ async function loadSettingValidity(setting) {
 	} else {
 		valid = false
 	}
-	if (restricted_settings.includes(setting) && restrictSettings) {
+	if (restricted_settings.has(setting) && restrictSettings) {
 		valid = false
 	}
 	if (disabledFeatures.includes(setting)) {
@@ -1748,36 +1740,7 @@ async function loadSettings(setting) {
 		await initializeSettings()
 		settings = await getStorage('rpSettings')
 	}
-	restrictSettings = await getStorage('restrictSettings')
-	restricted_settings = ["linkedDiscord", "gameTwitter", "groupTwitter", "groupDiscord"]
-	standard_settings = ["moreMutuals", "animatedProfileThemes", "morePlaytimeSorts", "serverSizeSort", "fastestServersSort", "moreGameFilters", "moreServerFilters", "additionalServerInfo", "gameLikeRatioFilter", "quickUserSearch", "liveLikeDislikeFavoriteCounters", "sandboxOutfits", "moreTradePanel", "tradeValueCalculator", "tradeDemandRatingCalculator", "tradeItemValue", "tradeItemDemand", "itemPageValueDemand", "tradePageProjectedWarning", "embeddedRolimonsItemLink", "embeddedRolimonsUserLink", "tradeOffersValueCalculator", "winLossDisplay", "underOverRAP"]
-	pro_settings = ["liveVisits", "livePlayers", "tradePreviews", "ownerHistory", "quickItemSearch", "tradeNotifier", "singleSessionMode",  "tradeProtection", "autoDecline", "declineThreshold", "cancelThreshold", "hideDeclinedNotifications"]
-	ultra_settings = ["dealNotifier", "buyButton", "dealCalculations", "notificationThreshold", "valueThreshold", "projectedFilter"]
-	subscriptionLevel = await subscriptionManager.getSubscription()
-	valid = true
-	if (subscriptionLevel == "free_tier") {
-		if (standard_settings.includes(setting) || pro_settings.includes(setting) || ultra_settings.includes(setting)) {
-			valid = false
-		}
-	} else if (subscriptionLevel == "standard_tier") {
-		if (pro_settings.includes(setting) || ultra_settings.includes(setting)) {
-			valid = false
-		}
-	} else if (subscriptionLevel == "pro_tier") {
-		if (ultra_settings.includes(setting)) {
-			valid = false
-		}
-	} else if (subscriptionLevel == "ultra_tier") {
-		valid = true
-	} else {
-		valid = false
-	}
-	if (restricted_settings.includes(setting) && restrictSettings) {
-		valid = false
-	}
-	if (disabledFeatures.includes(setting)) {
-		valid = false
-	}
+	valid = await loadSettingValidity(setting)
 	if (typeof settings[setting] === "boolean") {
 		settingValue = settings[setting] && valid
 	} else {
